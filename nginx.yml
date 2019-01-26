@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  become_user: root
+  become: true
+  tasks:
+    - name: ensure nginx is at the latest version
+      yum: name=nginx state=latest
+    - name: start nginx
+      service:
+          name: nginx
+          state: started
+
